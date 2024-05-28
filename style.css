@@ -16,7 +16,7 @@ body {
     overflow: hidden;
 }
 
-#music-container {
+.music-container {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 20px 20px 0 rgba(169, 243, 166, 0.7);
@@ -33,12 +33,26 @@ body {
 }
 
 .img-container img {
+    position: absolute;
+    top: -50px;
     border-radius: 50%;
     object-fit: cover;
     height: 110px;
     width: 110px;
     animation: rotate 5s linear infinite;
     animation-play-state: paused;
+}
+
+.img-container::after {
+    content: '';
+    background-color: #fff;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: 90%;
+    left: 50%;
+    transform: translate(-50%, 50%);
 }
 
 .music-container.play .img-container img {
@@ -89,4 +103,34 @@ body {
     left: 20px;
     width: calc(100% - 40px);
     padding: 10px 10px 10px 150px;
+    transform: translateY(0);
+    transition: all 0.3s ease-in;
+    z-index: -1;
+    opacity: 0;
+}
+ 
+.music-container.play .music-info {
+    transform: translateY(-100%);
+    opacity: 1;
+}
+
+.music-info h4 {
+    margin: 0;
+}
+
+#progress-container {
+    background-color: #fff;
+    width: 100%;
+    margin: 10px 0;
+    height: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#progress {
+    background-color: rgb(185, 255, 185);
+    border-radius: 5px;
+    height: 100%;
+    width: 50%;
+    transition: width 0.1s linear;
 }
