@@ -131,6 +131,7 @@ body {
     background-color: rgb(185, 255, 185);
     border-radius: 5px;
     height: 100%;
-    width: 50%;
+    width: 0%;
     transition: width 0.1s linear;
+    pointer-events: none;
 }
